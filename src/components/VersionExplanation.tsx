@@ -192,7 +192,7 @@ export function VersionExplanation({ version }: VersionExplanationProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const exp = EXPLANATIONS[version];
 
-  const colorClasses = {
+  const colorMap: Record<string, { bg: string; border: string; badge: string; button: string }> = {
     slate: {
       bg: 'bg-slate-50',
       border: 'border-slate-200',
@@ -211,7 +211,8 @@ export function VersionExplanation({ version }: VersionExplanationProps) {
       badge: 'bg-purple-200 text-purple-700',
       button: 'bg-purple-600 hover:bg-purple-700',
     },
-  }[exp.color];
+  };
+  const colorClasses = colorMap[exp.color] || colorMap.slate;
 
   return (
     <>
