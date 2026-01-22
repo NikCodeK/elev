@@ -13,7 +13,6 @@ export function FourMonthEnhancements() {
   return (
     <div className="space-y-4">
       <GovernancePanel />
-      <CompliancePanel />
       <ScaleOperationsPanel />
     </div>
   );
@@ -57,10 +56,10 @@ function GovernancePanel() {
           </div>
         </div>
 
-        {/* Versioned Evaluation Logic */}
+        {/* Version Documentation */}
         <div className="bg-white rounded-xl p-4 border border-purple-100">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs text-slate-500 font-semibold uppercase">Evaluation Logic Versions</span>
+            <span className="text-xs text-slate-500 font-semibold uppercase">Aktive Version-Dokumentation</span>
           </div>
 
           <div className="space-y-2">
@@ -92,75 +91,6 @@ function GovernancePanel() {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CompliancePanel() {
-  return (
-    <div className="bg-amber-50 rounded-2xl p-5 border border-amber-200">
-      <div className="flex items-center gap-2 mb-4">
-        <div className="w-2 h-2 bg-amber-500 rounded-full" />
-        <h3 className="text-sm font-semibold text-amber-700 uppercase tracking-wide">
-          Compliance Awareness
-        </h3>
-        <span className="text-xs text-amber-500 ml-auto font-mono bg-amber-100 px-2 py-0.5 rounded">SOC2 Type II</span>
-      </div>
-
-      <div className="grid grid-cols-3 gap-4">
-        {/* Data Retention */}
-        <div className="p-4 bg-white rounded-xl border border-amber-100">
-          <div className="text-xs text-slate-500 mb-2 font-medium">Data Retention</div>
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-3 h-3 rounded-full bg-emerald-500" />
-            <span className="text-lg font-bold text-slate-800 font-mono">90 days</span>
-          </div>
-          <div className="text-[10px] text-slate-400">Auto-purge enabled</div>
-          <div className="mt-2 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-            <div className="h-full w-1/3 bg-emerald-500 rounded-full" />
-          </div>
-          <div className="text-[10px] text-slate-400 mt-1">32 days until purge</div>
-        </div>
-
-        {/* Regional Deployment */}
-        <div className="p-4 bg-white rounded-xl border border-amber-100">
-          <div className="text-xs text-slate-500 mb-2 font-medium">Regional Deployment</div>
-          <div className="space-y-2">
-            <label className="flex items-center gap-2">
-              <input type="checkbox" checked readOnly className="w-4 h-4 rounded border-slate-300 text-blue-600" />
-              <span className="text-sm text-slate-700">US-East</span>
-            </label>
-            <label className="flex items-center gap-2">
-              <input type="checkbox" checked readOnly className="w-4 h-4 rounded border-slate-300 text-blue-600" />
-              <span className="text-sm text-slate-700">EU-West (GDPR)</span>
-            </label>
-            <label className="flex items-center gap-2 opacity-50">
-              <input type="checkbox" disabled className="w-4 h-4 rounded border-slate-300" />
-              <span className="text-sm text-slate-400">APAC</span>
-            </label>
-          </div>
-        </div>
-
-        {/* Encryption */}
-        <div className="p-4 bg-white rounded-xl border border-amber-100">
-          <div className="text-xs text-slate-500 mb-2 font-medium">Encryption</div>
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-slate-600">At Rest</span>
-              <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-600 font-mono">ON</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-slate-600">In Transit</span>
-              <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-600 font-mono">ON</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-slate-600">Key Rotation</span>
-              <span className="text-[10px] text-emerald-600 font-mono">90d</span>
-            </div>
-          </div>
-          <div className="text-[10px] text-slate-400 mt-2">AES-256-GCM</div>
         </div>
       </div>
     </div>
