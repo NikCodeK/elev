@@ -189,6 +189,7 @@ const EXPLANATIONS: Record<SystemVersion, {
 
 export function VersionExplanation({ version }: VersionExplanationProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const exp = EXPLANATIONS[version];
 
   const colorClasses = {
@@ -214,71 +215,82 @@ export function VersionExplanation({ version }: VersionExplanationProps) {
 
   return (
     <>
-      <div className={`rounded-xl border ${colorClasses.border} ${colorClasses.bg} p-4 mb-4`}>
-        {/* Header */}
-        <div className="flex items-center justify-between mb-3">
-          <div>
+      <div className={`rounded-xl border ${colorClasses.border} ${colorClasses.bg} mb-4 overflow-hidden`}>
+        {/* Header - Always visible, clickable to expand */}
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="w-full p-4 flex items-center justify-between hover:bg-white/50 transition-colors"
+        >
+          <div className="flex items-center gap-2">
             <span className={`px-2 py-0.5 rounded text-xs font-bold ${colorClasses.badge}`}>
               {exp.title}
             </span>
-            <span className="ml-2 text-sm text-slate-600">{exp.subtitle}</span>
+            <span className="text-sm text-slate-600">{exp.subtitle}</span>
           </div>
-          {exp.technicalDeepDive && (
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className={`px-3 py-1 text-xs text-white rounded-lg ${colorClasses.button} transition-colors`}
-            >
-              Technische Details
-            </button>
-          )}
-        </div>
+          <svg
+            className={`w-5 h-5 text-slate-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
 
-        {/* Question */}
-        <p className="text-sm font-medium text-slate-800 mb-3 italic">
-          &quot;{exp.question}&quot;
-        </p>
+        {/* Expandable Content */}
+        {isExpanded && (
+          <div className="px-4 pb-4 border-t border-slate-200/50">
+            {/* Question */}
+            <p className="text-sm font-medium text-slate-800 mt-3 mb-3 italic">
+              &quot;{exp.question}&quot;
+            </p>
 
-        {/* New Features */}
-        <div className="mb-3">
-          <div className="text-xs font-semibold text-emerald-600 uppercase tracking-wide mb-2">
-            {version === 'mvp' ? 'Was ist drin' : 'Neu in dieser Version'}
-          </div>
-          <ul className="space-y-1.5">
-            {exp.newFeatures.slice(0, 4).map((item, i) => (
-              <li key={i} className="text-xs">
-                <span className="text-emerald-500 mr-1.5">+</span>
-                <span className="font-medium text-slate-700">{item.feature}</span>
-                <span className="text-slate-500"> — {item.why}</span>
-              </li>
-            ))}
-            {exp.newFeatures.length > 4 && (
-              <li className="text-xs text-slate-400">
-                + {exp.newFeatures.length - 4} weitere...
-              </li>
+            {/* Technical Details Button */}
+            {exp.technicalDeepDive && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsModalOpen(true);
+                }}
+                className={`mb-3 px-3 py-1.5 text-xs text-white rounded-lg ${colorClasses.button} transition-colors`}
+              >
+                Technische Details
+              </button>
             )}
-          </ul>
-        </div>
 
-        {/* Not Included */}
-        {exp.notIncluded && (
-          <div>
-            <div className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-2">
-              Bewusst weggelassen
+            {/* New Features */}
+            <div className="mb-3">
+              <div className="text-xs font-semibold text-emerald-600 uppercase tracking-wide mb-2">
+                {version === 'mvp' ? 'Was ist drin' : 'Neu in dieser Version'}
+              </div>
+              <ul className="space-y-1.5">
+                {exp.newFeatures.map((item, i) => (
+                  <li key={i} className="text-xs">
+                    <span className="text-emerald-500 mr-1.5">+</span>
+                    <span className="font-medium text-slate-700">{item.feature}</span>
+                    <span className="text-slate-500"> — {item.why}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-1.5">
-              {exp.notIncluded.slice(0, 3).map((item, i) => (
-                <li key={i} className="text-xs">
-                  <span className="text-amber-500 mr-1.5">−</span>
-                  <span className="font-medium text-slate-700">{item.feature}</span>
-                  <span className="text-slate-500"> — {item.reason}</span>
-                </li>
-              ))}
-              {exp.notIncluded.length > 3 && (
-                <li className="text-xs text-slate-400">
-                  − {exp.notIncluded.length - 3} weitere...
-                </li>
-              )}
-            </ul>
+
+            {/* Not Included */}
+            {exp.notIncluded && (
+              <div>
+                <div className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-2">
+                  Bewusst weggelassen
+                </div>
+                <ul className="space-y-1.5">
+                  {exp.notIncluded.map((item, i) => (
+                    <li key={i} className="text-xs">
+                      <span className="text-amber-500 mr-1.5">−</span>
+                      <span className="font-medium text-slate-700">{item.feature}</span>
+                      <span className="text-slate-500"> — {item.reason}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         )}
       </div>
