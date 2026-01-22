@@ -30,7 +30,7 @@ const EXPLANATIONS: Record<SystemVersion, {
 }> = {
   mvp: {
     title: 'MVP',
-    subtitle: 'Proof of Concept',
+    subtitle: 'Woche 1-2',
     question: 'Funktioniert die Idee überhaupt?',
     color: 'slate',
     newFeatures: [
@@ -72,7 +72,7 @@ const EXPLANATIONS: Record<SystemVersion, {
   },
   '2-month': {
     title: '2-Month',
-    subtitle: 'Production Ready',
+    subtitle: 'Nach 2 Monaten',
     question: 'Können wir uns darauf verlassen?',
     color: 'blue',
     newFeatures: [
@@ -137,7 +137,7 @@ const EXPLANATIONS: Record<SystemVersion, {
   },
   '4-month': {
     title: '4-Month',
-    subtitle: 'Enterprise Ready',
+    subtitle: 'Nach 4 Monaten',
     question: 'Können wir dem System bei kritischen Entscheidungen vertrauen?',
     color: 'purple',
     newFeatures: [

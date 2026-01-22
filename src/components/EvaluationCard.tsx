@@ -31,18 +31,18 @@ interface EvaluationCardProps {
 // Version-specific evaluation metadata
 const EVALUATION_META: Record<SystemVersion, { label: string; description: string; color: string }> = {
   mvp: {
-    label: 'Basic Evaluation',
-    description: 'Single-model analysis without calibration',
+    label: 'Basis-Evaluation',
+    description: 'Ein Modell, keine Kalibrierung',
     color: 'bg-slate-100 text-slate-600 border-slate-200',
   },
   '2-month': {
-    label: 'Production Evaluation',
-    description: 'Rubric v2.3 • Persisted • Quality-scored',
+    label: 'Erweiterte Evaluation',
+    description: 'Rubrik v2.3 • Persistiert • Quality-Score',
     color: 'bg-blue-100 text-blue-700 border-blue-200',
   },
   '4-month': {
-    label: 'Enterprise Evaluation',
-    description: 'Multi-model consensus • Calibrated against 847 interviews',
+    label: 'Kalibrierte Evaluation',
+    description: 'Multi-Model • Kalibriert gegen 847 Interviews',
     color: 'bg-purple-100 text-purple-700 border-purple-200',
   },
 };

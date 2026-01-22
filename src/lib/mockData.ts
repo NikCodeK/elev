@@ -438,13 +438,13 @@ export const VERSION_INFO: Record<SystemVersion, VersionInfo> = {
     id: '2-month',
     label: '2-Month',
     tagline: 'Can we rely on it?',
-    description: 'Production-ready with persistence, stability, and operational monitoring',
+    description: 'Mit Persistenz, Stabilität und Monitoring',
   },
   '4-month': {
     id: '4-month',
     label: '4-Month',
     tagline: 'Can we trust it at scale?',
-    description: 'Enterprise-ready with governance, compliance, and scale operations',
+    description: 'Mit Governance, Compliance und Skalierung',
   },
 };
 

@@ -242,7 +242,7 @@ export default function Home() {
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px flex-1 bg-blue-200" />
               <span className="text-xs text-blue-500 uppercase tracking-wider font-semibold px-2">
-                Production Capabilities
+                2-Month Features
               </span>
               <div className="h-px flex-1 bg-blue-200" />
             </div>
@@ -254,7 +254,7 @@ export default function Home() {
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px flex-1 bg-purple-200" />
               <span className="text-xs text-purple-500 uppercase tracking-wider font-semibold px-2">
-                Enterprise Capabilities
+                4-Month Features
               </span>
               <div className="h-px flex-1 bg-purple-200" />
             </div>

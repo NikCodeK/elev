@@ -161,8 +161,8 @@ function VersionEnhancements({ version }: { version: SystemVersion }) {
         <div className="h-px flex-1 bg-slate-200" />
         <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold px-2">
           {version === 'mvp' && 'MVP Scope'}
-          {version === '2-month' && 'Production Capabilities'}
-          {version === '4-month' && 'Enterprise Capabilities'}
+          {version === '2-month' && '2-Month Features'}
+          {version === '4-month' && '4-Month Features'}
         </span>
         <div className="h-px flex-1 bg-slate-200" />
       </div>
